@@ -10,21 +10,27 @@ import (
 func main() {
 	mappings := []vanity.Mapping{
 		vanity.Mapping{
+			Path:        "/aula-assistant",
+			URL:         "https://github.com/arnested/aula-assistant",
+			Description: "aula-assistant",
+			HideInIndex: false,
+		},
+		vanity.Mapping{
 			Path:        "/dsupdate",
 			URL:         "https://github.com/arnested/dsupdate",
 			Description: "dsupdate",
 			HideInIndex: false,
 		},
 		vanity.Mapping{
-			Path:        "/triagebot",
-			URL:         "https://github.com/arnested/triagebot",
-			Description: "triagebot",
-			HideInIndex: false,
-		},
-		vanity.Mapping{
 			Path:        "/healthy",
 			URL:         "https://github.com/arnested/healthy",
 			Description: "healthy",
+			HideInIndex: false,
+		},
+		vanity.Mapping{
+			Path:        "/triagebot",
+			URL:         "https://github.com/arnested/triagebot",
+			Description: "triagebot",
 			HideInIndex: false,
 		},
 		vanity.Mapping{
