@@ -1,8 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"log"
+	"net"
 	"net/http"
+	"os"
 
 	"go.yhsif.com/vanity"
 )
@@ -41,7 +43,6 @@ func main() {
 		},
 	}
 
-	addr := ":80"
 	args := vanity.Args{
 		Config: vanity.Config{
 			Prefix:   "arnested.dk/go",
@@ -50,11 +51,23 @@ func main() {
 		NoIndex: false,
 	}
 
+	addr := ":0"
+	if value, ok := os.LookupEnv("ADDR"); ok {
+		addr = value
+	}
+
+	listener, err := net.Listen("tcp", addr)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("Using port: %d", listener.Addr().(*net.TCPAddr).Port)
+
 	handler := vanity.Handler(args)
 
 	http.HandleFunc("/", handler)
-	err := http.ListenAndServe(addr, nil)
+	err = http.Serve(listener, nil)
 	if err != nil {
-		fmt.Print(err)
+		log.Fatal(err)
 	}
 }
