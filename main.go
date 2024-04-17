@@ -24,6 +24,12 @@ func main() {
 			HideInIndex: false,
 		},
 		{
+			Path:        "/fetch-ssh-keys",
+			URL:         "https://github.com/arnested/fetch-ssh-keys",
+			Description: "fetch-ssh-keys",
+			HideInIndex: false,
+		},
+		{
 			Path:        "/healthy",
 			URL:         "https://github.com/arnested/healthy",
 			Description: "healthy",
