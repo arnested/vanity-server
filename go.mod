@@ -1,3 +1,4 @@
+// Deprecated: no longer in use.
 module arnested.dk/go/vanity-server
 
 go 1.16
